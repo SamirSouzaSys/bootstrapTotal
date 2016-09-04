@@ -29,17 +29,19 @@
 	</style>
 </head>
 <body>
-
 	<div class="header">
 		<h1 class="text-center headline">Workshop Maratona Bootstrap</h1>
-		<h2 class="text-center subheadline">Notificações</h2>
+		<h2 class="text-center subheadline">Notificações - Bootstrap notify</h2>
+		<h2 class="text-center "><a class="subheadline" href="http://www.bootstraptotal.com.br/workshop-video-02/" target="_">Vídeo instrucional</a></h2>
+
 		<img src="notify.png" class="img-responsive center-block img-header" alt="">
 	</div>
 	
 	<div class="col-lg-4 col-lg-offset-4">
-
-		<button class="btn btn-primary btn-notify">Show message</button>
-	
+		<button class="btn btn-primary btn-notify">Título</button>
+		<button class="btn btn-warning btn-notify">Ícone</button>
+		<button class="btn btn-success btn-notify">Link</button>
+		<button class="btn btn-danger btn-notify">Animações</button>
 	</div><!--.container-->
 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>	
@@ -47,8 +49,38 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/mouse0270-bootstrap-notify/3.1.5/bootstrap-notify.min.js"></script>
 
 	<script>
-		
-	</script>
-
+		$(".btn-notify").on("click", function(){
+			//Instância do plugin
+			$.notify({
+				//obj de options
+				title: "galerinha",
+				message: "Hello world!",
+				icon: 'glyphicon glyphicon-warning-sign',
+				url:"http://www.google.com.br",
+				target:"_blank"
+			},{
+				//obj de settings
+				type: "danger",
+				//animações css animate https://daneden.github.io/animate.css/
+				animate:{
+					enter:'animated fadeInDown',
+					exit:'animated fadeOutLeft'
+					},
+				//While is opening
+				onShow: function(){
+					console.log('está abrindo')
+				},
+				onShown: function(){
+					console.log('está aberto')
+				},
+				onClose: function(){
+					console.log('está fechando')
+				},
+				onClosed: function(){
+					console.log('está fechado')
+				}
+			});
+	});
+</script>
 </body>
 </html>
